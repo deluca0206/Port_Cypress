@@ -23,8 +23,7 @@ describe('Faz cadastro Parabank', () => {
     it('preenche o login e clica em no botão "log in"', () => {
         
         cy.visit("https://parabank.parasoft.com/parabank/index.htm")
-        cy.get("input[name='username']").type('theboris')
-        cy.get("input[name='password']").type('123456')        
+        cy.loginForm(userData);      
         cy.get("input.button[type='submit']").click()
         cy.contains('h1' , 'Accounts Overview').should('be.visible')
     

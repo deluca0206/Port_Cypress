@@ -50,7 +50,7 @@ Cypress.Commands.add('generateUserData', () => {
         zipCode: faker.location.zipCode(),
         phone: faker.phone.number(),
         ssn: faker.finance.pin(),
-        username: `${faker.person.firstName()}${faker.person.lastName()}hks`,
+        username: `${faker.person.firstName()}${faker.person.lastName()}hhks`,
         password: faker.internet.password()
     };
 });
@@ -69,7 +69,10 @@ Cypress.Commands.add('fillRegistrationForm', (userData) => {
     cy.get('#repeatedPassword').type(userData.password);
 });
 
-Cypress.Commands.add('loginForm', (userData) => {
-    cy.get("div input[name='username']").type(userData.username)
-    cy.get("input[name='password']']").type(userData.password)
+Cypress.Commands.add('loginForm', () => {
+    cy.fixture('credenciais').then((userData) => {
+        cy.get("div input[name='username']").type(userData.username);
+        cy.get("div input[name='password']").type(userData.password);
+    });
 });
+
