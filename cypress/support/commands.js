@@ -38,7 +38,7 @@ Cypress.Commands.add('lidarComOferta', ()=> {
         });
 })
 
-
+const { faker } = require('@faker-js/faker');
 
 Cypress.Commands.add('generateUserData', () => {
     return {
@@ -68,3 +68,8 @@ Cypress.Commands.add('fillRegistrationForm', (userData) => {
     cy.get('#customer\\.password').type(userData.password);
     cy.get('#repeatedPassword').type(userData.password);
 });
+
+Cypress.Commands.add('loginForm'), (userData) => {
+    cy.get("div input[name='username']").type(userData.username)
+    cy.get("input[name='password']']").type(userData.password)
+}
