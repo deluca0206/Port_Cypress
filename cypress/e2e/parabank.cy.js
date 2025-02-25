@@ -20,7 +20,7 @@ describe('Faz cadastro Parabank', () => {
 
     });
 
-    it('preenche o login e clica em no botão "log in"', () => {
+    it.only('preenche o login e clica em no botão "log in"', () => {
         
         cy.visit("https://parabank.parasoft.com/parabank/index.htm")
         cy.loginForm(userData);      
