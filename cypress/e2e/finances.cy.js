@@ -3,6 +3,7 @@
 describe('Transações', () => {
 
     beforeEach(() => {
+        cy.viewport('iphone-xr')
         cy.visit("https://dev-finance.netlify.app/#")
     });
 
